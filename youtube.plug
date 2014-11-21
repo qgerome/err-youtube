@@ -1,0 +1,7 @@
+[Core]
+Name = Youtube
+Module = youtube
+    
+[Documentation]
+Description = An Err plugin for Youtube
+

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block body %}
+    <strong>Here is what I've found: <i><a href="{{ video_url }}">{{ title }}</a></i></strong>
+    <br /><a href="{{ video_url }}"><img src="{{ thumbnails.default }}"></a>
+{% endblock %}
