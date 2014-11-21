@@ -8,8 +8,6 @@ import logging
 
 class Youtube(BotPlugin):
 	"""An Err plugin Youtube"""
-	min_err_version = '1.6.0' # Optional, but recommended
-
 	def __init__(self):
 		super(Youtube, self).__init__()
 
@@ -39,10 +37,17 @@ class Youtube(BotPlugin):
 	def get_random_video(self, query):
 		return random.choice(self.client.search(query))
 
-	# Passing split_args_with=None will cause arguments to be split on any kind
-	# of whitespace, just like Python's split() does
 	@botcmd(split_args_with=':', template='video')
-	@botcmd(name='yt', split_args_with=':', template='video')
 	def youtube(self, mess, args):
 		"""A command which simply returns 'Example'"""
-		return self.get_random_video(args[0])
+		if not self.config.get('YOUTUBE_API_KEY'):
+			return "Seriously ? Am I supposed to guess your api key ?"
+		if not args:
+			return 'Am I supposed to guess the video you want ?...'
+		video = self.get_random_video(args[0])
+		logging.debug(video)
+		return video
+
+	@botcmd(split_args_with=':', template='video')
+	def yt(self, mess, args):
+		return self.youtube(mess, args)
