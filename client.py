@@ -12,7 +12,7 @@ DEVELOPER_KEY = "REPLACE_ME"
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-get_video_url = "https://www.youtube.com?v={0}".format
+get_video_url = "https://www.youtube.com/watch?v={0}".format
 
 
 def extract_video(video):
